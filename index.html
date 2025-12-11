@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forte Bella – Cosmética sensorial</title>
+
+  <!-- Tipografías Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg: #f7f2eb;
+      --color-bg-light: #fbf7f2;
+      --color-primary: #c9a059;
+      --color-primary-soft: rgba(201, 160, 89, 0.12);
+      --color-text: #2b2620;
+      --color-muted: #7b6f62;
+      --radius-lg: 24px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.08);
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Layout base */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .container {
+      width: min(1120px, 100% - 2.5rem);
+      margin: 0 auto;
+    }
+
+    /* Navbar */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(247, 242, 235, 0.95), rgba(247, 242, 235, 0.85));
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--color-primary);
+    }
+
+    .brand-text {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--color-primary);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.5rem 1.3rem;
+      border-radius: 999px;
+      border: 1px solid var(--color-primary);
+      font-size: 0.85rem;
+      background: var(--color-primary-soft);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-cta span {
+      font-size: 0.95rem;
+    }
+
+    .nav-cta:hover {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: var(--shadow-soft);
+      transform: translateY(-1px);
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.23em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.35rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero-highlight {
+      color: var(--color-primary);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--color-muted);
+      max-width: 32rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      background: #fff;
+      font-size: 0.78rem;
+      color: var(--color-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--color-primary);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 55px rgba(0,0,0,0.16);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      color: var(--color-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: #fff;
+    }
+
+    .hero-note {
+      margin-top: 0.7rem;
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 1.5rem;
+      background: radial-gradient(circle at top left, #ffffff 0, #fbf6ef 38%, #f3e6d3 100%);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-product-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-product-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-product-desc {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      font-size: 0.75rem;
+    }
+
+    .hero-spec-tag {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.6);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .hero-floating {
+      position: absolute;
+      right: -12px;
+      bottom: -14px;
+      width: 180px;
+      padding: 0.9rem 1rem;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    .hero-floating strong {
+      color: var(--color-text);
+    }
+
+    /* Secciones generales */
+
+    section {
+      padding: 3.25rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.92rem;
+      color: var(--color-muted);
+      max-width: 32rem;
+      margin: 0.2rem auto 0;
+    }
+
+    /* Sobre la marca */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .about-copy p {
+      font-size: 0.96rem;
+      color: var(--color-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .pill {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: var(--color-primary-soft);
+      font-size: 0.8rem;
+      color: var(--color-muted);
+    }
+
+    .about-card {
+      border-radius: var(--radius-lg);
+      background: #fff;
+      padding: 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.86rem;
+      color: var(--color-muted);
+    }
+
+    .about-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+      color: var(--color-text);
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: 0.6rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .about-bullet {
+      margin-top: 0.32rem;
+      font-size: 0.7rem;
+      color: var(--color-primary);
+    }
+
+    /* Productos */
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.8rem;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.3rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 260px;
+    }
+
+    .product-tag {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .product-name {
+      font-family: "Playfair Display", serif;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-desc {
+      font-size: 0.86rem;
+      color: var(--color-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .product-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .product-pill {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: var(--color-primary-soft);
+      color: var(--color-muted);
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .price {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .price span {
+      font-size: 0.78rem;
+      color: var(--color-muted);
+    }
+
+    /* Beneficios */
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    .benefit-card {
+      padding: 1.3rem 1.2rem;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.88rem;
+      color: var(--color-muted);
+    }
+
+    .benefit-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      border: 1px solid var(--color-primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.6rem;
+      font-size: 1rem;
+    }
+
+    .benefit-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      color: var(--color-text);
+    }
+
+    /* Cómo comprar + Testimonios */
+
+    .purchase-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      gap: 2.2rem;
+      align-items: flex-start;
+    }
+
+    .steps-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .steps-list li {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: var(--color-primary-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+
+    .testimonials-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.86rem;
+      color: var(--color-muted);
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      margin-bottom: 0.6rem;
+    }
+
+    .testimonial-name {
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .testimonial-tag {
+      font-size: 0.76rem;
+      color: var(--color-muted);
+    }
+
+    /* Contacto / Footer */
+
+    .contact {
+      background: #f1e6d7;
+      border-top: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .contact-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .contact-inner p {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.9rem;
+    }
+
+    .footer {
+      font-size: 0.75rem;
+      color: var(--color-muted);
+      margin-top: 0.8rem;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 850px) {
+      .hero-grid,
+      .about-grid,
+      .products-grid,
+      .benefits-grid,
+      .purchase-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2.6rem;
+      }
+
+      .hero-media {
+        order: -1;
+      }
+
+      .products-grid,
+      .benefits-grid {
+        gap: 1.3rem;
+      }
+
+      .navbar-inner {
+        gap: 0.8rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-card {
+        padding: 1.3rem 1.1rem;
+      }
+
+      .product-card {
+        padding: 1.2rem 1.1rem 1.3rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-floating {
+        position: static;
+        width: 100%;
+        margin-top: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="#hero" class="brand">
+        <div class="brand-icon">✶</div>
+        <div class="brand-text">FORTE BELLA</div>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">La marca</a>
+        <a href="#products">Productos</a>
+        <a href="#benefits">Beneficios</a>
+        <a href="#purchase">Cómo comprar</a>
+        <a href="#contact" class="nav-cta">
+          <span>Comprar por WhatsApp</span> ➜
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">COSMÉTICA SENSORIAL · COLOMBIA</div>
+          <h1 class="hero-title">
+            Despierta el poder de tu
+            <span class="hero-highlight">belleza</span>
+          </h1>
+          <p class="hero-subtitle">
+            Forte Bella es una marca de cosmética sensorial creada para mujeres que buscan
+            algo más que una crema: un ritual. Hidratación 24&nbsp;h+, aromas que enamoran
+            y texturas que hacen de tu piel un lugar seguro.
+          </p>
+
+          <div class="hero-badges">
+            <div class="badge"><span class="badge-dot"></span> Hidratación 24&nbsp;h+</div>
+            <div class="badge"><span class="badge-dot"></span> Aromas envolventes</div>
+            <div class="badge"><span class="badge-dot"></span> Hecho en Colombia 🇨🇴</div>
+          </div>
+
+          <div class="hero-actions">
+            <a
+              href="https://wa.me/57XXXXXXXXXX?text=Hola%20Forte%20Bella,%20quiero%20hacer%20mi%20pedido%20🕊️"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Comprar por WhatsApp
+            </a>
+            <a href="#products" class="btn btn-ghost">Ver colección inicial</a>
+          </div>
+
+          <p class="hero-note">
+            ✶ Lote pequeño, producción consciente. Si te gusta, no lo dejes para después.
+          </p>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-card">
+            <div class="hero-product-label">Best seller</div>
+            <div class="hero-product-name">Body Butter Nutriente</div>
+            <p class="hero-product-desc">
+              Mantequilla corporal ultra cremosa inspirada en rituales de spa. Nutre,
+              suaviza y deja un brillo sutil sin sensación pesada.
+            </p>
+            <div class="hero-specs">
+              <span class="hero-spec-tag">Hidratación 24&nbsp;h+</span>
+              <span class="hero-spec-tag">Textura batida</span>
+              <span class="hero-spec-tag">Aroma chocolate · avena · miel</span>
+            </div>
+          </div>
+
+          <div class="hero-floating">
+            <strong>+ piel fuerte & bella</strong><br />
+            Diseñada para acompañar tu rutina diaria:
+            después del baño, antes de dormir o cada vez que quieras
+            recordarte que tu piel es prioridad.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE LA MARCA -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-copy">
+          <div class="section-eyebrow">LA MARCA</div>
+          <h2 class="section-title">Forte Bella</h2>
+          <p>
+            Forte Bella nace de una idea simple: tu piel merece sentirse tan fuerte como tú.
+            Creamos experiencias sensoriales que combinan hidratación prolongada, aromas
+            envolventes y texturas que transforman el cuidado corporal en un ritual de amor propio.
+          </p>
+          <p>
+            Cada fórmula está pensada para acompañar tus días intensos y tus noches tranquilas:
+            oficinas, risas, sueños, lágrimas y bailes. Tu piel está en todo; tu cuidado también debería.
+          </p>
+          <div class="pill-list">
+            <span class="pill">Rituales de cuidado corporal</span>
+            <span class="pill">Cosmética sensorial</span>
+            <span class="pill">Marca colombiana</span>
+          </div>
+        </div>
+
+        <aside class="about-card">
+          <h3>Nuestro manifiesto</h3>
+          <p>
+            Creemos en una belleza que no compite, que abraza. En productos que hablan con honestidad:
+            buena hidratación, buena textura, buena vibra. Sin discursos imposibles, solo piel real.
+          </p>
+          <ul class="about-list">
+            <li>
+              <span class="about-bullet">✶</span>
+              <span>Fórmulas pensadas para uso diario, incluso en climas cálidos.</span>
+            </li>
+            <li>
+              <span class="about-bullet">✶</span>
+              <span>Aromas diseñados para que te quieras oler la piel todo el día.</span>
+            </li>
+            <li>
+              <span class="about-bullet">✶</span>
+              <span>Pequeños lotes para asegurar frescura y atención al detalle.</span>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="products">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">COLECCIÓN INICIAL</div>
+          <h2 class="section-title">Tres productos, un ritual</h2>
+          <p class="section-subtitle">
+            Empieza tu rutina Forte Bella con un trío pensado para limpiar, nutrir
+            e iluminar tu piel. Pocas referencias, mucho cariño en cada una.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <!-- Producto 1 -->
+          <article class="product-card">
+            <div>
+              <div class="product-tag">Paso 1 · Exfoliar</div>
+              <h3 class="product-name">Exfoliante Corporal Sensorial</h3>
+              <p class="product-desc">
+                Exfoliante de grano medio que retira células muertas sin maltratar tu piel.
+                Deja una sensación sedosa y lista para recibir hidratación.
+              </p>
+              <div class="product-badges">
+                <span class="product-pill">Textura cremosa</span>
+                <span class="product-pill">Piel más suave al instante</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="price">$ Precio de lanzamiento<br /><span>(pregunta por combos)</span></div>
+              <a
+                href="https://wa.me/57XXXXXXXXXX?text=Hola%20Forte%20Bella,%20quiero%20el%20Exfoliante%20Corporal%20Sensorial%20✨"
+                class="btn btn-ghost"
+                target="_blank"
+                rel="noopener"
+              >
+                Pedir por WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <!-- Producto 2 -->
+          <article class="product-card">
+            <div>
+              <div class="product-tag">Paso 2 · Nutrir</div>
+              <h3 class="product-name">Body Butter Nutriente</h3>
+              <p class="product-desc">
+                Mantequilla corporal batida para una hidratación profunda de larga duración.
+                Ideal después de la ducha o antes de dormir.
+              </p>
+              <div class="product-badges">
+                <span class="product-pill">Hidratación 24&nbsp;h+</span>
+                <span class="product-pill">Ideal piel seca a normal</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="price">$ Precio de lanzamiento<br /><span>(disponible en 3 aromas)</span></div>
+              <a
+                href="https://wa.me/57XXXXXXXXXX?text=Hola%20Forte%20Bella,%20quiero%20la%20Body%20Butter%20Nutriente%20💧"
+                class="btn btn-ghost"
+                target="_blank"
+                rel="noopener"
+              >
+                Pedir por WhatsApp
+              </a>
+            </div>
+          </article>
+
+          <!-- Producto 3 -->
+          <article class="product-card">
+            <div>
+              <div class="product-tag">Paso 3 · Iluminar</div>
+              <h3 class="product-name">Shimmer Oil Iluminador</h3>
+              <p class="product-desc">
+                Aceite corporal ligero con efecto shimmer delicado. No es glitter agresivo,
+                es brillo elegante de “piel sana y besada por el sol”.
+              </p>
+              <div class="product-badges">
+                <span class="product-pill">Acabado luminoso</span>
+                <span class="product-pill">Ideal para piernas & escote</span>
+              </div>
+            </div>
+            <div class="product-footer">
+              <div class="price">$ Precio de lanzamiento<br /><span>(no mancha ropa, secado rápido)</span></div>
+              <a
+                href="https://wa.me/57XXXXXXXXXX?text=Hola%20Forte%20Bella,%20quiero%20el%20Shimmer%20Oil%20Iluminador%20✨"
+                class="btn btn-ghost"
+                target="_blank"
+                rel="noopener"
+              >
+                Pedir por WhatsApp
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section id="benefits">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">POR QUÉ FORTE BELLA</div>
+          <h2 class="section-title">Beneficios pensados en ti</h2>
+          <p class="section-subtitle">
+            No se trata solo de cómo te ves, sino de cómo te sientes en tu propia piel:
+            fuerte, suave, cuidada y acompañada por aromas que cuentan historias.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon">💧</div>
+            <h3>Hidratación que acompaña tu día</h3>
+            <p>
+              Formulaciones pensadas para climas cálidos y rutinas reales.
+              Piel hidratada por más tiempo, sin sensación pesada.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">🌸</div>
+            <h3>Aromas sensoriales</h3>
+            <p>
+              Fragancias cálidas y envolventes que se integran con tu perfume
+              y te invitan a hacer una pausa en medio del caos diario.
+            </p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">🤍</div>
+            <h3>Rituales de amor propio</h3>
+            <p>
+              Productos diseñados para convertirse en un momento contigo:
+              después del baño, antes de dormir, antes de salir a conquistar tu día.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO COMPRAR / TESTIMONIOS -->
+    <section id="purchase">
+      <div class="container purchase-grid">
+        <div>
+          <div class="section-eyebrow">CÓMO COMPRAR</div>
+          <h2 class="section-title">Tu Forte Bella en 3 pasos</h2>
+          <ul class="steps-list">
+            <li>
+              <div class="step-num">1</div>
+              <div>
+                Escríbenos por WhatsApp y cuéntanos tu tipo de piel, aroma favorito
+                y para qué momentos quieres usar los productos.
+              </div>
+            </li>
+            <li>
+              <div class="step-num">2</div>
+              <div>
+                Te recomendamos el ritual ideal (exfoliante, body butter y shimmer)
+                y te compartimos precios y combos disponibles.
+              </div>
+            </li>
+            <li>
+              <div class="step-num">3</div>
+              <div>
+                Haces tu pago, coordinamos envío y recibes tu caja Forte Bella
+                lista para convertir tu baño en tu mini spa.
+              </div>
+            </li>
+          </ul>
+
+          <div style="margin-top:1.4rem; display:flex; gap:0.8rem; flex-wrap:wrap;">
+            <a
+              href="https://wa.me/57XXXXXXXXXX?text=Hola%20Forte%20Bella,%20quiero%20empezar%20mi%20ritual%20💫"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+            >
+              Empezar por WhatsApp
+            </a>
+            <a
+              href="https://www.instagram.com/fortebella_/"
+              class="btn btn-ghost"
+              target="_blank"
+              rel="noopener"
+            >
+              Ver más en Instagram
+            </a>
+          </div>
+        </div>
+
+        <aside class="testimonials-card">
+          <div class="section-eyebrow" style="text-align:left;margin-bottom:0.2rem;">TESTIMONIOS</div>
+          <p class="testimonial-quote">
+            “La mantequilla huele delicioso y me dura la hidratación todo el día.
+            Siento la piel suave, pero lo que más amo es el momento de ponérmela.”
+          </p>
+          <div class="testimonial-name">Laura</div>
+          <div class="testimonial-tag">Cliente Forte Bella</div>
+
+          <hr style="border:none;border-top:1px solid rgba(0,0,0,0.06);margin:0.9rem 0;" />
+
+          <p class="testimonial-quote">
+            “El shimmer es perfecto, se ve elegante. Lo uso en piernas y brazos cuando salgo
+            en la noche y siempre me preguntan qué producto es.”
+          </p>
+          <div class="testimonial-name">Carolina</div>
+          <div class="testimonial-tag">Cliente Forte Bella</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTACTO / FOOTER -->
+  <section id="contact" class="contact">
+    <div class="container contact-inner" style="padding:2.2rem 0;">
+      <h2 class="section-title" style="font-size:1.3rem;">Hablemos de tu piel</h2>
+      <p>
+        Si quieres saber qué producto va mejor contigo, escríbenos. Te ayudamos
+        a armar tu ritual Forte Bella según tu tipo de piel y tus momentos del día.
+      </p>
+      <div class="contact-links">
+        <a
+          href="https://wa.me/57XXXXXXXXXX?text=Hola%20Forte%20Bella,%20quiero%20asesor%C3%ADa%20para%20mi%20rutina%20de%20piel%20🤍"
+          class="btn btn-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+        <a
+          href="https://www.instagram.com/fortebella_/"
+          class="btn btn-ghost"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram
+        </a>
+      </div>
+      <div class="footer">
+        © <span id="year"></span> Forte Bella. Todos los derechos reservados.
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Año dinámico en el footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Scroll suave para anclas
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+      if (targetId.length > 1) {
+        e.preventDefault();
+        document.querySelector(targetId).scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>
