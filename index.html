@@ -80,10 +80,12 @@
       padding: 0.75rem 0;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
+    .brand-logo{
+  width: 42px;
+  height: auto;
+  object-fit: contain;
+  }
+
     }
 
     .brand-icon {
@@ -691,9 +693,10 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="container navbar-inner">
-      <a href="#hero" class="brand">
-        <div class="brand-icon">✶</div>
-        <div class="brand-text">FORTE BELLA</div>
+   <a href="#hero" class="brand">
+  <img src="assets/logo-forte-bella.png" alt="Forte Bella" class="brand-logo">
+  <div class="brand-text">FORTE BELLA</div>
+</a>
       </a>
       <nav class="nav-links">
         <a href="#about">La marca</a>
@@ -845,7 +848,7 @@
               </div>
             </div>
             <div class="product-footer">
-              <div class="price">$ 42.000 c/u<br /><span>(pregunta por combos)</span></div>
+              <div class="price">$ 42.000<br /><span>(pregunta por combos)</span></div>
               <a
                 href="https://wa.me/573045564695?text=Hola%20Forte%20Bella,%20quiero%20el%20Exfoliante%20Corporal%20Sensorial%20✨"
                 class="btn btn-ghost"
@@ -1105,5 +1108,6 @@
 </script>
 </body>
 </html>
+
 
 
