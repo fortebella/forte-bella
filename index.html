@@ -22,6 +22,47 @@
       --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.08);
       --transition-fast: 0.25s ease;
     }
+.production{
+  padding: 3.5rem 0;
+}
+
+.production-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.production-image img{
+  width: 100%;
+  max-width: 420px;
+  border-radius: 24px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+}
+
+.production-text{
+  max-width: 34rem;
+}
+@media (max-width: 850px) {
+  .production-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .production-image{
+    order: -1;
+    text-align: center;
+  }
+
+  .production-image img{
+    max-width: 320px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .production-text{
+    text-align: center;
+    margin: 0 auto;
+  }
+}
 
     * {
       margin: 0;
@@ -1081,17 +1122,31 @@
   </main>
 
   <!-- CONTACTO / FOOTER -->
-  <section>
-  <div class="container section-header">
-    <div class="section-eyebrow">PRODUCCIÓN CONSCIENTE</div>
-    <h2 class="section-title">Hecho especialmente para ti</h2>
-    <p class="section-subtitle">
-      No producimos en masa. Cada Forte Bella se prepara en lotes pequeños,
-      cuidando ingredientes, texturas y aromas para que recibas un producto fresco,
-      pensado para tu piel.
-    </p>
+<section class="production">
+  <div class="container production-grid">
+
+    <!-- IMAGEN -->
+    <div class="production-image">
+      <img
+        src="laboratorio.png"
+        alt="Producción consciente Forte Bella"
+      />
+    </div>
+
+    <!-- TEXTO -->
+    <div class="production-text">
+      <div class="section-eyebrow">PRODUCCIÓN CONSCIENTE</div>
+      <h2 class="section-title">Hecho especialmente para ti</h2>
+      <p class="section-subtitle">
+        No producimos en masa. Cada Forte Bella se prepara en lotes
+        pequeños, cuidando ingredientes, texturas y aromas para que
+        recibas un producto fresco, pensado para tu piel.
+      </p>
+    </div>
+
   </div>
 </section>
+
 
   <section id="contact" class="contact">
     <div class="container contact-inner" style="padding:2.2rem 0;">
@@ -1144,6 +1199,7 @@
 </script>
 </body>
 </html>
+
 
 
 
